@@ -8,7 +8,7 @@
   * Participant - a user who is involved in a specific consent
   * Private key - a secret key used to prove the identity of a participant.
   * Public key - a public key used to identify a participant or an account. Also called an address
-  * Account - a public key that identifies a participant will reference transactions on the Blockchain with transfer of Ether
+  * Account - a public key that identifies a participant on the Blockchain. Which therefore is could have references to transactions with Ethers.
   * Address - a public key identifying a participant or a transaction. Example `cd2a3d9f938e13cd947ec05abc7fe734df8dd826`.
   * Transaction - an entity in the Blockchain e.g. a participant accepts a request for consent.
   * Block - a package containing zero or more transactions, a reference to the previous block in the Blockchain, a timestamp and a nonce used in the proof-of-work mining puzzle.
@@ -194,16 +194,16 @@ The *data owner* will be able to link different addresses to the same identity i
 
 
   * *customer 1* has addresses: `A123`, `A456`, `A789`.
-  * *data requestor 1* know *customer 1* as `A123`. *data requestor 1* has address `B111`.
-  * *data requestor 2* know *customer 1* as `A456`. *data requestor 2* has address `B222`.
-  * *Data owner A* know *customer 1* as `A789`. *Institution A* has address `I333`.
-  * *data requestor 1* (`B111`) request `A123` for consent to retrieve data at `I333`.
-  * *customer 1* (`A123`) accepts consent that `B111` can retrieve data at `I333` and input the address `A789` crypted with  `I333` PGP key.
-  * *Institution A* (`I333`) receives consent, decrypt `A789` and know now *customer 1* as `A123` and `A789`.
-  * *data requestor 2* (`B222`) request `A456` for consent to retrieve data at `I333`.
-  * *customer 1* (`A456`) accepts consent that `B222` can retrieve data at `I333` and input the address `A789` crypted with  `I333` PGP key.
-  * *Institution A* (`I333`) receives consent, decrypt `A456` and know now  *customer 1* as `A456` and `A789`.
-  * *Institution A* (`I333`) knows that `A123`, `A456`, `A789`, are the same user
+  * *data requestor 1* knows *customer 1* as `A123`. *data requestor 1* has address `B111`.
+  * *data requestor 2* knows *customer 1* as `A456`. *data requestor 2* has address `B222`.
+  * *Data owner A* knows *customer 1* as `A789`. *Institution A* has address `I333`.
+  * *data requestor 1* (`B111`) requests `A123` for consent to retrieve data at `I333`.
+  * *customer 1* (`A123`) accepts consent that `B111`, can retrieve data at `I333` and input the address `A789` encrypted with  `I333` PGP key.
+  * *Institution A* (`I333`) receives consent, decrypts `A789` and now knows *customer 1* as `A123` and `A789`.
+  * *data requestor 2* (`B222`) requests `A456` for consent to retrieve data at `I333`.
+  * *customer 1* (`A456`) accepts consent that `B222` can retrieve at `I333`, and inputs the address `A789` encrypted with  `I333` PGP key.
+  * *Institution A* (`I333`) receives consent, decrypts `A456` and now knows  *customer 1* as `A456` and `A789`.
+  * *Institution A* (`I333`) knows that `A123`, `A456`, `A789`, are the same user.
   * But the date requestor can not link the different user together.
 
 #### Conclusion
