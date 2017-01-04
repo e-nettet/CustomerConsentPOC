@@ -8,7 +8,7 @@
   * Participant - a user who is involved in a specific consent
   * Private key - a secret key used to prove the identity of a participant.
   * Public key - a public key used to identify a participant or an account. Also called an address
-  * Account - a public key that identifies a participant on the Blockchain. Which therefore is could have references to transactions with Ethers.
+  * Account - a public key that identifies a participant on the Blockchain. Which could have references to transactions with Ethers.
   * Address - a public key identifying a participant or a transaction. Example `cd2a3d9f938e13cd947ec05abc7fe734df8dd826`.
   * Transaction - an entity in the Blockchain e.g. a participant accepts a request for consent.
   * Block - a package containing zero or more transactions, a reference to the previous block in the Blockchain, a timestamp and a nonce used in the proof-of-work mining puzzle.
