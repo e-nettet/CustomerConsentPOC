@@ -8,10 +8,10 @@
   * Participant - a user who is involved in a specific consent
   * Private key - a secret key used to prove the identity of a participant.
   * Public key - a public key used to identify a participant or an account. Also called an address
-  * Account - a public key containing Ether
+  * Account - a public key that identifies a participant on the Blockchain. Which could have references to transactions with Ethers.
   * Address - a public key identifying a participant or a transaction. Example `cd2a3d9f938e13cd947ec05abc7fe734df8dd826`.
   * Transaction - an entity in the Blockchain e.g. a participant accepts a request for consent.
-  * Block - a package containing one or more transactions, a reference to the previous block in the Blockchain, a timestamp and a nonce used in the proof-of-work mining puzzle.
+  * Block - a package containing zero or more transactions, a reference to the previous block in the Blockchain, a timestamp and a nonce used in the proof-of-work mining puzzle.
   * EVM (Ethereum Virtuel Maskine) code - executable code belonging to an account.
   * Contract - an account not controlled by a user but by EVM code.
   * Ether - Currency i Ethereum blockchain.
@@ -190,18 +190,21 @@ The *data owner* will be able to link different addresses to the same identity i
 
 #### Consent with central key store  (PGP)
  // Hvad udtrykker denne mere end den ovenfor..?
+ If the customer is known by more than one address the other participants will not be able to link an address to a customer.
 
-  * *Bruger 1* har adresser: `A123`, `A456`, `A789`.
-  * *Bank 1* kender *Bruger 1* som `A123`. *Bank 1* har adressen `B111`.
-  * *Bank 2* kender *Bruger 1* som `A456`. *Bank 2* har adressen `B222`.
-  * *Institution A* kender *Bruger 1* som `A789`. *Institution A* har adressen `I333`.
-  * *Bank 1* (`B111`) anmoder `A123` om samtykke for at hente data hos `I333`.
-  * *Bruger 1* (`A123`) giver samtykke at `B111` henter data hos `I333` og angiver sin adresse `A789` krypteret med `I333` PGP nøgle.
-  * *Institution A* (`I333`) modtager samtykke, dekrypterer `A789` og nu kender *Bruger 1* som `A123` og `A789`.
-  * *Bank 2* (`B222`) anmoder `A456` om samtykke for at hente data hos `I333`.
-  * *Bruger 1* (`A456`) giver samtykke at `B222` henter data hos `I333` og angiver sin adresse `A789` krypteret med `I333` PGP nøgle.
-  * *Institution A* (`I333`) modtager samtykke, dekrypterer `A456` og kender nu *Bruger 1* som `A456` og `A789`.
-  * *Institution A* (`I333`) kender at `A123`, `A456`, `A789`, den samme bruger.
+
+  * *customer 1* has addresses: `A123`, `A456`, `A789`.
+  * *data requestor 1* knows *customer 1* as `A123`. *data requestor 1* has address `B111`.
+  * *data requestor 2* knows *customer 1* as `A456`. *data requestor 2* has address `B222`.
+  * *Data owner A* knows *customer 1* as `A789`. *Institution A* has address `I333`.
+  * *data requestor 1* (`B111`) requests `A123` for consent to retrieve data at `I333`.
+  * *customer 1* (`A123`) accepts consent that `B111`, can retrieve data at `I333` and input the address `A789` encrypted with  `I333` PGP key.
+  * *Institution A* (`I333`) receives consent, decrypts `A789` and now knows *customer 1* as `A123` and `A789`.
+  * *data requestor 2* (`B222`) requests `A456` for consent to retrieve data at `I333`.
+  * *customer 1* (`A456`) accepts consent that `B222` can retrieve at `I333`, and inputs the address `A789` encrypted with  `I333` PGP key.
+  * *Institution A* (`I333`) receives consent, decrypts `A456` and now knows  *customer 1* as `A456` and `A789`.
+  * *Institution A* (`I333`) knows that `A123`, `A456`, `A789`, are the same user.
+  * But the date requestor can not link the different user together.
 
 #### Conclusion
 
